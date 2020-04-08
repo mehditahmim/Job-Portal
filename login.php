@@ -10,6 +10,14 @@
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Signin</title>
+    <?php
+      if(isset($_GET['msg']) && ($_GET['msg']=="failed")){
+          ?>
+          <script type='text/javascript'>alert("Login Failed: Invalid Username or Password!");</script>
+          <?php
+      }
+      
+      ?>
 
      </head>
 
@@ -25,7 +33,7 @@
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
     <span class="glyphicon glyphicon-user"></span> Sign Up <span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li><a href="jobseeker/register_user.php">Jobseeker</a></li>
+            <li><a href="jobseeker_signup.php">Jobseeker</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="company/register_emp.php">Company</a></li>
         </ul>
@@ -38,7 +46,7 @@
   <div class="row">
    <div class="col-sm-4"></div>
     <div class="col-sm-3">
-        <form class="form-signin" action="process_login.php" method="post">
+        <form class="form-signin" action="login_process.php" method="post">
             <h2 class="form-signin-heading">Please sign in</h2>
 			 <div class="page-header" style="background: #f4511e"></div>
              <label for="inputEmail" class="sr-only">Email address</label>
