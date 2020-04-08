@@ -87,7 +87,7 @@
            $mail->isHTML(true);                                  // Set email format to HTML
 
            $mail->Subject = 'Email Verification';
-           $mail->Body    = "<a href = 'http://localhost/cse327_project/Job-Portal/jobseeker/verify.php?vkey=$key'>Register here</a>";
+           $mail->Body    = "<a href = 'http://localhost/cse327_project/Job-Portal/verify.php?vkey=$key'>Register here</a>";
            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
            if(!$mail->send()) {
