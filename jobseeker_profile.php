@@ -1,4 +1,152 @@
 <?php 
 
-echo "It's working";
+include_once('config.php');
+session_start();
+$id = $_SESSION['id'];
+$user_type = $_SESSION['type'];
+
+if(isset($_SESSION['id']) && isset($_SESSION['type'])) {
+
+	$get_userinfo = "select * from login join jobseeker on login.log_id=jobseeker.log_id WHERE login.log_id = $id";
+
+	$result = mysqli_query($db1,$get_userinfo);
+	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	$_SESSION['jsname']=$row['name'];
+    $_SESSION['jsid']=$row['user_id'];
+}
+else{
+	header("location: login.php?msg=please_login");
+}
+
+
+
+
+
  ?>
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ 	<title>Profile- <?php echo $row['name']; ?></title>
+ </head>
+ <body>
+ <div id="nav">
+    <nav class="navbar">
+        <div class="navbar" id="insidenav">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Job Portal</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="jobseeker_profile.php">Profile<span class="sr-only">(current)</span></a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="view_applied.php">View Applied Jobs</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="view_selected.php">View Selected Jobs</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Jobs">
+                </div>
+                <button type="button" class="btn btn-default" onclick="search();">Search</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="update.php">Update profile</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="change_pass.php">Change Password</a></li>
+                   </ul>
+                </li>
+                <li><a href="../logout.php">Logout</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</div>
+
+<div class="container-fluid" id="content">
+
+<aside class="col-sm-3" role="complementary">
+    <div class="region region-sidebar-first well" id="sidebar">
+     <h3 style="color: green" class="text-center" > Welcome <?php echo $row['name']; ?> </h3>
+     </div>
+
+  <!-- profile pic -->
+    <div class="thumbnail text-center">
+        <div class="img thumbnail">
+        	<?php
+       
+         	if($row['photo']!="") {
+              echo "<img src = 'uploads/images/".$row['photo']."' class='img-circle' >";
+             }else{
+             	echo" <img src='uploads/images/defaultpic.png'>";
+
+             } 
+         		    
+           ?>
+           
+        </div>
+         <strong><?php echo $row['name']; ?> </strong>
+          <!-- Button trigger modal -->
+          <p><button type="button" class="btn btn-default" data-toggle="modal" data-target="#changeimg">Change Image </button></a></div>
+<!--------------------------- profile pic --------------------------------------- -->
+<div class="modal fade" id="changeimg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Change or upload your profile image</h4>
+      </div>
+      <div class="modal-body">
+      	
+       <form method="post" action="upload.php?type=image" enctype="multipart/form-data">
+       	<?php
+       
+         	if($row['photo']!="") {
+              echo "<img src = 'uploads/images/".$row['photo']."' class='img-circle' >";
+             }else{
+             	echo" <img src='uploads/images/defaultpic.png'>";
+
+             } 
+         		    
+           ?>
+	   
+            <div class="form-group form-inline">
+                <label for="file" class="control-label">Select your photo:</label>
+                <input type="file" name="image" id="image" class="form-control">
+            </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" id="submit" name="submit" class="btn btn-primary">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</aside>
+<!-- profile pic -->
+
+
+ 
+
+
+
+ </body>
+ <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+ <script src="search.js"></script>
+ <script src="js/jquery-1.12.0.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+ </html>

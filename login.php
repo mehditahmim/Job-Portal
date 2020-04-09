@@ -16,6 +16,13 @@
           <script type='text/javascript'>alert("Login Failed: Invalid Username or Password!");</script>
           <?php
       }
+      else if(isset($_GET['msg']) && ($_GET['msg']=='please_login'))
+          {
+          ?>
+          <script type="text/javascript">alert("Please Login First to access your profile!");</script>
+          <?php
+      }
+    
       
       ?>
 
