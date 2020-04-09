@@ -139,6 +139,66 @@ else{
 </aside>
 <!-- profile pic -->
 
+<section class="col-sm-7">
+<div id="searchcontent">
+<!-- Search content overlay div starts here ------------------------------------ --- -->
+<div id="header">
+<h3 style="color: red"> Find jobs, edit your profile or update your current resume for better jobs!</h3>
+</div>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#details">Your Profile</a></li>
+    <li><a data-toggle="tab" href="#resume">Update Resume</a></li>
+
+    
+</ul>
+
+<!------------------------------------------------------------------------------- -->
+
+    <div class="tab-content">
+
+<!------------------------------------------------------------------------------- -->
+
+        <div id="details" class="tab-pane fade in active" style="margin-top: 50px;">
+        <h3> Your Profile</h3>
+        <table class="table" >
+        <tr>
+            <td class="tbold">Full Name:</td>
+            <td><?php echo $row['name']; ?></td>
+
+        </tr>
+        <tr>
+            <td class="tbold">Email:</td>
+            <td><?php echo $row['email']; ?></td>
+        </tr>
+        <tr>
+            <td class="tbold">Phone:</td>
+            <td><?php echo $row['phone']; ?></td>
+        </tr>
+        <tr>
+            <td class="tbold">Location:</td>
+            <td><?php echo $row['location']; ?></td>
+        </tr>
+        <tr>
+            <td class="tbold">Experience (Years):</td>
+            <td><?php echo $row['experience']; ?></td>
+        </tr>
+        <tr>
+            <td class="tbold">Skills:</td>
+            <td><?php echo $row['skills']; ?></td>
+        </tr>
+        <tr>
+           <td class="tbold">UG Qualification:</td>
+            <td><?php echo $row['basic_edu']; ?></td>
+        </tr>
+        <tr>
+            <td class="tbold">PG Qualification:</td>
+            <td><?php echo $row['master_edu']; ?></td>
+        </tr>
+    </table>
+</div> <!-- profile -->
+   
+
 
  
 
