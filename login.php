@@ -42,7 +42,7 @@
         <ul class="dropdown-menu">
             <li><a href="jobseeker_signup.php">Jobseeker</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="company/register_emp.php">Company</a></li>
+            <li><a href="company_signup.php">Company</a></li>
         </ul>
       </li>
       </ul>

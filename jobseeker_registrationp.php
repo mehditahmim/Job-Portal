@@ -14,6 +14,7 @@
 
 
   <?php 
+   
          include_once('config.php');
 
          if(isset($_POST['create'])){
@@ -53,16 +54,16 @@
 
             if($result1 == 1 && $result2 == 1){
 
-              sendEmail($vkey);
+              sendEmail($vkey,$email);
          
              } 
    }
 
  }
- function sendEmail($key = '0') {
+ function sendEmail($key = '0',$emailaddress = '') {
 
 
-            require 'PHPMailerAutoload.php';
+            require_once 'PHPMailerAutoload.php';
 
             $vemail = 'laughter.buddy327@gmail.com';
             $vpass =  '12as34df56gh';
@@ -80,7 +81,7 @@
            $mail->Port = 587;                                    // TCP port to connect to
 
            $mail->setFrom($vemail, 'JOB-PORTAL');
-           $mail->addAddress($_POST['useremail']);     // Add a recipient
+           $mail->addAddress($emailaddress);     // Add a recipient
                                                      
            $mail->addReplyTo($vemail);
            //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
@@ -100,8 +101,10 @@
            header("Location: verificationpage.php");
                      
             }
+      
     } 
 
+ 
    
 
    

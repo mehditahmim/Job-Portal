@@ -28,7 +28,7 @@
     <h1 align="center" >JOB PORTAL</h1> 
     <hr>
      
-    <p align="center"> Hi! <?php   echo $_SESSION['name'];  ?> an email has been sent to your email address:<?php echo $_SESSION['email']; ?> please verify it to activate your account.</p>
+    <p align="center"> Hi!  an email has been sent to your email address please verify it to activate your account.</p>
 
     <div class="page-header" style="background: #f4511e"></div>
   	</div>

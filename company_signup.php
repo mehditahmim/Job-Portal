@@ -197,14 +197,14 @@
     <div class="form-group">
         <label class="control-label col-sm-2">About Company:</label>
         <div class="col-sm-5">
-            <textarea placeholder="Describe your company" class="form-control" rows="5" required onblur="validate('longtext','abouterror',this.value)"></textarea>
+            <textarea placeholder="Describe your company" class="form-control" rows="5" name = "description" required onblur="validate('longtext','abouterror',this.value)"></textarea>
             <label class="error" id="abouterror"></label>
         </div>
     </div>
     
     <div class="form-group form-inline col-sm-10">
     <label for="reg" class="control-label col-sm-5">Check for errors before submitting the form!</label>
-    <button class="btn btn-success" type="submit"  id="reg">Register</button>
+    <button class="btn btn-success" type="submit" name = 'register' id="reg">Register</button>
     <label for"reset" class="control-label"> </label>
      <button class="btn btn-danger" type="reset" id="reset"> Reset </button>
 </div>

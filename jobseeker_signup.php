@@ -11,14 +11,14 @@
         <nav class="navbar" id="insidenav">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="../index.php">Job Portal</a>
+                    <a class="navbar-brand" href="index.php">Job Portal</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Jobseeker Registration</a></li>
+                    <li class="active"><a href="company_signup.php">COMPANY Registration</a></li>
 
                </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                </ul>
              </div>
          </nav>
