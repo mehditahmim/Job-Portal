@@ -16,11 +16,14 @@ if(($result>0) && ($hash_pass == $result['password'] )){
     $_SESSION["type"] = $result['usertype'];
     header("Location:jobseeker_profile.php?msg=success");
   }
-   if (($result['usertype'] == 'jobseeker') && ($result['status'] == 0)){
+   if (($result['usertype'] == 'jobseeker') && ($result['status'] == 0))
      header("Location: verificationpage.php");
-   }
    
-  }
+    if (($result['usertype'] == 'company') && ($result['status'] == 0))
+     header("Location: verificationpage.php");
+  
+
+}
   else{
     header('location:login.php?msg=failed');
   }
