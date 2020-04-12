@@ -22,6 +22,8 @@
           <script type="text/javascript">alert("Please Login First to access your profile!");</script>
           <?php
       }
+      ?>
+     
     
       
       ?>

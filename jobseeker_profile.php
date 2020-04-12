@@ -12,7 +12,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['type'])) {
 	$result = mysqli_query($db1,$get_userinfo);
 	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	$_SESSION['jsname']=$row['name'];
-    $_SESSION['jsid']=$row['user_id'];
+  $_SESSION['jsid']=$row['user_id'];
 }
 else{
 	header("location: login.php?msg=please_login");
@@ -69,7 +69,7 @@ else{
                         <li><a href="change_pass.php">Change Password</a></li>
                    </ul>
                 </li>
-                <li><a href="../logout.php">Logout</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

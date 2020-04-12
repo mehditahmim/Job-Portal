@@ -42,8 +42,12 @@ if(isset($_POST['register'])){
         else{
         	$add_company = "INSERT INTO login (email,password,usertype,status,vkey) VALUES ('$email','$hashedpass','company',0,'$vkey')";
         	$result1 = mysqli_query($db1,$add_company) or die("Cant Register , The user email may be already existing");
-        	$add_details =  "INSERT INTO company (log_id,ename,etype,address,phone,description) VALUES ((SELECT log_id FROM login WHERE email='$email'),'$compname','$comtype','$addr','$phone','$description')";
-            $result2 = mysqli_query($db1,$add_details);
+        	/*$add_details =  "INSERT INTO company (log_id,ename,etype,address,phone,description) VALUES ((SELECT log_id FROM login WHERE email='$email'),'$compname','$comtype','$addr','$phone','$description')";
+            $result2 = mysqli_query($db1,$add_details) or die("error");*/
+
+            $query5 =  "INSERT INTO company (log_id,ename,etype,address,phone,description) VALUES ((SELECT log_id FROM login WHERE email='$email'),'$compname','$comtype','$addr','$phone','$description')";
+            $result2 = mysqli_query($db1,$query5) or die("error");
+
 
             if ($result1 ==1 && $result2 ==1) {
             	sendEmail($vkey,$email);
