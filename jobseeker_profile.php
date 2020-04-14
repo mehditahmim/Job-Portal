@@ -10,9 +10,17 @@ if(isset($_SESSION['id']) && isset($_SESSION['type'])) {
 	$get_userinfo = "select * from login join jobseeker on login.log_id=jobseeker.log_id WHERE login.log_id = $id";
 
 	$result = mysqli_query($db1,$get_userinfo);
-	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	$row = mysqli_fetch_array($result);
 	$_SESSION['jsname']=$row['name'];
   $_SESSION['jsid']=$row['user_id'];
+  $_SESSION['jsemail']=$row['email'];
+  $_SESSION['js_phone']=$row['phone'];
+  $_SESSION['js_experience']=$row['experience'];
+  $_SESSION['js_basic_edu']=$row['basic_edu'];
+  $_SESSION['js_master_edu']=$row['master_edu'];
+  $_SESSION['js_skills']=$row['skills'];
+
+
 }
 else{
 	header("location: login.php?msg=please_login");
@@ -64,7 +72,7 @@ else{
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="update.php">Update profile</a></li>
+                        <li><a href="jobseeker_updateprofile.php">Update profile</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="change_pass.php">Change Password</a></li>
                    </ul>

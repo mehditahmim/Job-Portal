@@ -48,7 +48,7 @@ if(isset($_POST['register'])){
             $query5 =  "INSERT INTO company (log_id,ename,etype,address,phone,description) VALUES ((SELECT log_id FROM login WHERE email='$email'),'$compname','$comtype','$addr','$phone','$description')";
             $result2 = mysqli_query($db1,$query5) or die("error");
 
-
+            
             if ($result1 ==1 && $result2 ==1) {
             	sendEmail($vkey,$email);
             	
