@@ -196,24 +196,28 @@ if(!isset($_SESSION))
       </h6>
       </div>
 
+
+
       <div class="card-body col-md-12" >
 
       <div class="table-responsive job-post-item bg-white p-4 d-block d-md-flex align-items-center">
        <?php
 
 
-        $query = "SELECT * FROM jobs";
+        $query = "SELECT * FROM Jobseeker";
         $query_run = mysqli_query($db1, $query);
        ?>
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-          <th> Jobid </th>
-          <th> Title </th>
-          <th> Comid </th>
-          <th>Job Desc</th>
-          <th>EDIT </th>
-          <th>DELETE </th>
+          <th> user_id </th>
+          <th> name </th>
+          <th> skills </th>
+          <th> experience </th>
+          <th> basic_edu </th>
+          <th> master_edu </th>
+          <th> EDIT </th>
+          <th> DELETE </th>
           </tr>
         </thead>
         <tbody>
@@ -223,29 +227,33 @@ if(!isset($_SESSION))
         {
           while($row = mysqli_fetch_assoc($query_run))
           {
-                   $id=$row['jobid'];
-                   $title=$row['title'];
-                   $compid=$row['eid'];
-                   $desc=$row['jobdesc'];
+                   $id=$row['user_id'];
+                   $name=$row['name'];
+                   $skill=$row['skills'];
+                   $exp=$row['experience'];
+                   $bsc=$row['basic_edu'];
+                   $msc=$row['master_edu'];
             ?>
 
 
           <tr class>
 
           <td><?php echo $id ?> </td>
-          <td><?php echo $title ?> </td>
-          <td><?php echo $compid ?> </td>
-          <td><?php echo $desc ?> </td>
+          <td><?php echo $name?> </td>
+          <td><?php echo $skill ?> </td>
+          <td><?php echo $exp ?> </td>
+          <td><?php echo $bsc ?> </td>
+          <td><?php echo $msc ?> </td>
             <td>
-          <form action="post_edit.php" method="post">
-          <input type="hidden" name="jobid" value="<?php echo $row["jobid"]; ?>">
-          <input type="hidden" name="title" value="<?php echo $row["title"]; ?>">
+          <form action="jobseeker_edit.php" method="post">
+          <input type="hidden" name="id" value="<?php echo $row["user_id"]; ?>">
+          <input type="hidden" name="name" value="<?php echo $row["name"]; ?>">
               <button type = "submit" name="edit_btn" class="btn btn-success"> EDIT</button>
             </form>
           </td>
           <td>
               <form action="editdelete.php" method="post">
-              <input type="hidden" name="delete_id" value="<?php echo $row["id"]?>">
+              <input type="hidden" name="delete_id" value="<?php echo $row["user_id"]?>">
                 <button type = "submit" name="delete_btn" class="btn btn-danger"> DELETE</button>
               </form>
           </td>
@@ -311,6 +319,11 @@ if(!isset($_SESSION))
               </div>
           </div>
       </div>
+
+
+
+
+    </div>
 
 
     </div>
