@@ -12,7 +12,14 @@ $result = mysqli_query($db1, $q)or die("Selecting user profile failed");
 $row = mysqli_fetch_array($result);
 //  echo $row['log_id'];
     $_SESSION['eid']=$row['eid'];
-    $_SESSION['name']=$row['ename'];
+    $_SESSION['cname'] = $row['ename'];
+    $_SESSION['cemail'] = $row['email'];    
+    $_SESSION['ctype'] = $row['etype'];
+    $_SESSION['caddress'] = $row['address'];
+    $_SESSION['cphone'] = $row['phone'];
+    $_SESSION['cdescription'] = $row['description'];
+  
+
 }
 else {
     header("location: login.php?msg=please_login");
@@ -60,7 +67,7 @@ else {
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="update.php">Update profile</a></li>
+                        <li><a href="company_updateprofile.php">Update profile</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="change_pass.php">Change Password</a></li>
                     </ul>
