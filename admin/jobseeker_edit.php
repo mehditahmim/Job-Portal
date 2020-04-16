@@ -77,7 +77,7 @@ if(!isset($_SESSION))
       if(isset($_POST['edit_btn']))
        {
 		    $id = $_POST['id'];
-        
+
 
         $query = "SELECT * FROM jobseeker WHERE user_id = '$id' ";
         $query_run = mysqli_query($db1, $query);
@@ -85,28 +85,28 @@ if(!isset($_SESSION))
         foreach ($query_run as $row)
          {
           ?>
-		       <form action="editdelete.php" method="POST">
+		       <form action="jobseeker_update.php" method="POST">
              <label> ID </label>
   					 <input type="text" name="edit_id" value="<?php echo $row["user_id"] ?>">
   						<div class="form-group">
   							<label> Name </label>
-  							<input type="text" name="edit_title" value="<?php echo $row["name"] ?>" class="form-control" placeholder="Enter new Title">
+  							<input type="text" name="edit_name" value="<?php echo $row["name"] ?>" class="form-control" placeholder="Enter new Title">
   						</div>
   						<div class="form-group">
   							<label>Skills</label>
-  							<input type="text" name="edit_compid" value="<?php echo $row["skills"] ?>" class="form-control" placeholder="Enter new Company">
+  							<input type="text" name="edit_skill" value="<?php echo $row["skills"] ?>" class="form-control" placeholder="Enter new Skill">
   						</div>
   						<div class="form-group">
   							<label>Experience</label>
-  							<input type="text" name="edit_desc" value="<?php echo $row["experience"] ?>" class="form-control" placeholder="Enter new Location">
+  							<input type="text" name="edit_exp" value="<?php echo $row["experience"] ?>" class="form-control" placeholder="Enter new Experience">
   						</div>
               <div class="form-group">
   							<label>Basic Education</label>
-  							<input type="text" name="edit_desc" value="<?php echo $row["basic_edu"] ?>" class="form-control" placeholder="Enter new Location">
+  							<input type="text" name="edit_bsc" value="<?php echo $row["basic_edu"] ?>" class="form-control" placeholder="Enter new BSC Education">
   						</div>
               <div class="form-group">
   							<label>Masters Education</label>
-  							<input type="text" name="edit_desc" value="<?php echo $row["master_edu"] ?>" class="form-control" placeholder="Enter new Location">
+  							<input type="text" name="edit_msc" value="<?php echo $row["master_edu"] ?>" class="form-control" placeholder="Enter new MSC Education">
   						</div>
 
   						<button type="submit" name="update_btn" class="btn btn-primary">UPDATE</button>

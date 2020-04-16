@@ -209,9 +209,14 @@ if(!isset($_SESSION))
         <thead>
           <tr>
           <th> Jobid </th>
-          <th> Title </th>
           <th> Comid </th>
+          <th> Title </th>
           <th>Job Desc</th>
+          <th>vacno</th>
+          <th>experience</th>
+          <th>basicpay</th>
+          <th>fnarea</th>
+          <th>postdate</th>
           <th>EDIT </th>
           <th>DELETE </th>
           </tr>
@@ -224,18 +229,28 @@ if(!isset($_SESSION))
           while($row = mysqli_fetch_assoc($query_run))
           {
                    $id=$row['jobid'];
-                   $title=$row['title'];
                    $compid=$row['eid'];
+                   $title=$row['title'];
                    $desc=$row['jobdesc'];
+                   $vac=$row['vacno'];
+                   $exp=$row['experience'];
+                   $bspay=$row['basicpay'];
+                   $fna=$row['fnarea'];
+                   $date=$row['postdate'];
             ?>
 
 
           <tr class>
 
           <td><?php echo $id ?> </td>
-          <td><?php echo $title ?> </td>
           <td><?php echo $compid ?> </td>
+          <td><?php echo $title ?> </td>
           <td><?php echo $desc ?> </td>
+          <td><?php echo $vac ?> </td>
+          <td><?php echo $exp ?> </td>
+          <td><?php echo $bspay ?> </td>
+          <td><?php echo $fna ?> </td>
+          <td><?php echo $date ?> </td>
             <td>
           <form action="post_edit.php" method="post">
           <input type="hidden" name="jobid" value="<?php echo $row["jobid"]; ?>">

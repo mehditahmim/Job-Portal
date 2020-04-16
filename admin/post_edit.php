@@ -76,8 +76,8 @@ if(!isset($_SESSION))
 
       if(isset($_POST['edit_btn']))
        {
-		$id = $_POST['jobid'];
-        $title = $_POST['title'];
+	    	$id = $_POST['jobid'];
+
 
         $query = "SELECT * FROM jobs WHERE jobid = '$id' ";
         $query_run = mysqli_query($db1, $query);
@@ -85,21 +85,42 @@ if(!isset($_SESSION))
         foreach ($query_run as $row)
          {
           ?>
-		       <form action="editdelete.php" method="POST">
+		       <form action="jobs_update.php" method="POST">
              <label> ID </label>
 					 <input type="text" name="edit_id" value="<?php echo $row["jobid"] ?>">
+           <div class="form-group">
+             <label>Company ID</label>
+             <input type="text" name="edit_compid" value="<?php echo $row["eid"] ?>" class="form-control" placeholder="Enter new Company">
+           </div>
 						<div class="form-group">
 							<label> Title </label>
 							<input type="text" name="edit_title" value="<?php echo $row["title"] ?>" class="form-control" placeholder="Enter new Title">
 						</div>
 						<div class="form-group">
-							<label>Company ID</label>
-							<input type="text" name="edit_compid" value="<?php echo $row["eid"] ?>" class="form-control" placeholder="Enter new Company">
-						</div>
-						<div class="form-group">
 							<label>Job Description</label>
 							<input type="text" name="edit_desc" value="<?php echo $row["jobdesc"] ?>" class="form-control" placeholder="Enter new Location">
 						</div>
+            <div class="form-group">
+							<label> Vacno </label>
+							<input type="text" name="edit_vacno" value="<?php echo $row["vacno"] ?>" class="form-control" placeholder="Enter new Title">
+						</div>
+						<div class="form-group">
+							<label>Experience</label>
+							<input type="text" name="edit_exp" value="<?php echo $row["experience"] ?>" class="form-control" placeholder="Enter new Company">
+						</div>
+						<div class="form-group">
+							<label>Basicpay</label>
+							<input type="text" name="edit_bsp" value="<?php echo $row["basicpay"] ?>" class="form-control" placeholder="Enter new Location">
+						</div>
+            <div class="form-group">
+							<label> Functional Area </label>
+							<input type="text" name="edit_fna" value="<?php echo $row["fnarea"] ?>" class="form-control" placeholder="Enter new Title">
+						</div>
+						<div class="form-group">
+							<label>Postdate</label>
+							<input type="text" name="edit_pdate" value="<?php echo $row["postdate"] ?>" class="form-control" placeholder="Enter new Company">
+						</div>
+
 
 						<button type="submit" name="update_btn" class="btn btn-primary">UPDATE</button>
 						<a href="admin.php" class="btn btn-danger" >CANCEL</a>
