@@ -189,8 +189,36 @@ else
    
 
 <!--------------------------------- Resume ---------------------------------------------- -->
+<div id="resume" class="tab-pane fade">
+        <div>
+    <form action="../upload.php?type=file" enctype="multipart/form-data" method="post">
+       <?php if($row['Resume']==""){
+    echo "<div class='alert alert-danger alert-dismissible' role='alert'>
+            <button type='button' class='close'  data-dismiss='alert' aria-label='Close'><span
+                    aria-hidden='true'>&times;</span></button>
+           <p style='font-size: 20px'><strong>Note:</strong> You have'nt uploaded a resume file yet! Upload a attractive resume file for a better job!</p>
+        </div>";
+}?>
 
-<!-- resume -->
+        <h4>Upload your updated resume file:</h4>
+        <hr style="background-color: darkslateblue;">
+        <div class="form-group" >
+            <label class="form-group col-sm-3" for="file" style="font-size:16px; ">Select your resume file:</label>
+             <div class="col-sm-7 form-inline">
+                 <input type="file" name="file" id="resumefile" class="form-control">
+                 <button class="btn btn-success" type="submit" name="submit" value="submit">Upload Resume</button>
+             </div>
+        </div>
+    </form>
+        <div class="page-header"></div>
+        <?php if($row['Resume']!="") {
+                echo "<a href = '../uploads/resume/".$row['Resume']."' > Download Your Current Resume File </a >";
+         }?>
+
+        <br>
+
+    </div>
+    </div> <!-- resume -->
 
      <!------------------------------------------------------------------------------- -->
 
