@@ -1,88 +1,63 @@
-<?php
-   $msg="";
-//if upload button is pressed
-if (isset($_POST['upload'])) {
-	$target = "images/".basename($_FILES['image']['name']);
-	
-	$db = mysqli_connect("localhost","root","","photos");
-	$image = $_FILES['image']['name'];
-	$text = $_POST['text'];
-	$sql = "INSERT INTO images (image,text) VALUES ('$image','$text')";
-	mysqli_query($db, $sql);
-
-	if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-		
-		$msg = "Image uploaded successfully";
-	}else
-	{
-		$msg = "There was a problem uploading image";
-	}
-}
-
-?>
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-	<title>Image Upload</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
+<head>		
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+        <title> Job Portal </title>     
+    </head>
+        
+<nav class="navbar" id="insidenav">
+  <div class="container-fluid">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="index.php">Job Portal</a>
+      </div>
 
-<div id="content">
+    <ul class="nav navbar-nav">
+      <li><a href="recent.php">Recent Jobs</a></li>
+      <li><a href="js_list.php">Job Seeker</a></li>
+      <li><a href="com_list.php">Company</a></li>
+      <li><a href="contact.php">Contact Us</a></li>
+    </ul>
 
+    <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="glyphicon glyphicon-user"></span> Register <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="jobseeker/register_user.php">Jobseeker</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="company/register_emp.php">Company</a></li>
+                    </ul>
+                </li>
+                <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+  
+</nav>
 
+    <!--- -------------------------------------------------------------------------------------------------- -->
+    <body id="indexbody" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-
-	<?php
-
-$db = mysqli_connect("localhost","root","","photos");
-$sql = "SELECT * FROM images"
-$result = mysqli_query($db,$sql);
-
-while ($row = mysqli_fetch_array($result)) {
-	 echo "<div id='img_div'>";
-      	echo "<img src='images/".$row['image']."' >";
-      	echo "<p>".$row['image_text']."</p>";
-      echo "</div>";
-}
-
-
-?>
-
-
-
-
-
-	<form method="post" action="index.php" enctype="multipart/form-data">
-		<input type="hidden" name="size" value="1000000">
-		<div>
-			<input type="file" name="image">
-		</div>
-		<div>
-			<textarea name="text" cols="40" rows="4" placeholder="say something"></textarea>
-		</div>
-
-<div>
-	<input type="submit" name="upload" value="Upload Image">
+<div class="container-fluid" id="main1"> <!-- jumbotron fluid -->
+<div class="jumbotron text-center" id="searchjum">
+<h1>Job Portal</h1>
+    <p>Search for Jobs</p>
+    <form class="form-inline" id="homesearch">
+        <input type="text" class="form-control" size="50" placeholder="Enter your search keyword" name="keyword" id="keyword">
+        <button type="button" onclick="search()" class="btn btn-lg " style="color: black"><span class="glyphicon glyphicon-search"></span> Search</button>
+    </form>
+	<div class="page-header" style="background: #f4511e"></div>
 </div>
-	</form>
-	
+</div> <!-- jumbotron -->
 
+<div class="container" id="subcontent" style="background: transparent">
+    <!-- div for search contents -->
 </div>
-
-
-<h1>Image Upload </h1>
-
 
 </body>
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	 <script src="js/search.js"></script>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
 </html>
