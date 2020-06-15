@@ -13,7 +13,7 @@
 	<nav class="navbar" id="insidenav">
 	  <div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="index.html">Job Portal</a>
+			<a class="navbar-brand" href="index.php">Job Portal</a>
 		</div>
 
 		<ul class="nav navbar-nav">
@@ -26,13 +26,13 @@
 			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
 			<span class="glyphicon glyphicon-user"></span> Register <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="jobseeker/register_user.html">Jobseeker</a></li>
+					<li><a href="jobseeker_signup.php">Jobseeker</a></li>
 					<li role="separator" class="divider"></li>
 					<li><a href="employer/register_emp.html">Company</a></li>
 				</ul>
 			</li>
 			
-			<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 		</ul>
 	  </div> 
 	</nav>
@@ -56,7 +56,7 @@
 		</div>
 	</body>
     
-	<!--- --------------------------------------------------scrips----------------------------------------------- -->
+	<!--- --------------------------------------------------scripts----------------------------------------------- -->
 	<script src="js/jquery-1.12.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	
