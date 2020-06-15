@@ -10,6 +10,25 @@
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Signin</title>
+	<?php
+      if(isset($_GET['msg']) && ($_GET['msg']=="failed")){
+          ?>
+          <script type='text/javascript'>alert("Login Failed: Invalid Username or Password!");</script>
+          <?php
+      }
+      else if(isset($_GET['msg']) && ($_GET['msg']=="registered"))
+      {
+          ?>
+      <script type='text/javascript'>alert("Successfully registered, Please login now!");</script>
+          <?php
+      }
+      else if(isset($_GET['msg']) && ($_GET['msg']=='please_login'))
+          {
+          ?>
+          <script type="text/javascript">alert("Please Login First to access your profile!");</script>
+          <?php
+      }
+      ?>
 
      </head>
 
@@ -20,6 +39,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Login</a></li>
+	  <li><a href="Admin/login.php">Admin</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
