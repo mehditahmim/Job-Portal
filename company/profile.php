@@ -78,12 +78,15 @@ if(isset($_GET['msg']) &&  $_GET['msg']=="jobposted") {
 </div><!-- /.container-fluid -->
 <div class="container-fluid" id="content">
 
-    <aside class="col-sm-3 text-center" role="complementary">
+   <aside class="col-sm-3 text-center" role="complementary">
         <div class="region region-sidebar-first well" id="sidebar">
             <h3 class="text-center" style="color: #dd4814"> Welcome <?php echo $row['ename']; ?> </h3> <hr>
         </div>
         <div class="thumbnail text-center">
-            
+            <?php if($row['logo']!="") {
+                echo "<img src = '../uploads/logo/".$row['logo']."' class='img-rounded' >";
+            }else echo" <img src='../images/paris.jpg'>";
+            ?>
             <strong><?php echo $row['ename']; ?></strong><br>
             <p><button class="btn btn-default" data-toggle="modal" data-target="#changelogo">Change Company Logo
         </div>
