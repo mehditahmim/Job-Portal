@@ -7,29 +7,22 @@ Functionalities:
 </br>
 1. Create account
 2. Email Verification
-2. Login to profile
-</br>
-Jobseeker:
-3. Upload Profile Picture
-4. Upload Resume.
-5. View Circulars
-6. Apply to jobs
-7. View Applied Jobs
-8. View Selected Jobs
-9. Search jobs
-</br>
-Company:
-10. Select Candidates
-11. Reject Candidates
-12. Delete Jobs
-13. Upload Company Logo
-14. Download candidates CV
-</br>
-Admin Panel
-15. Add New Admin
-16. Edit Delete posts 
-</br>
-17. Contact Page
+3. Login to profile
+4. Upload Profile Picture
+5. Upload Resume.
+6. View Circulars
+7. Apply to jobs
+8. View Applied Jobs
+9. View Selected Jobs
+10. Search jobs
+11. Select Candidates
+12. Reject Candidates
+13. Delete Jobs
+14. Upload Company Logo
+15. Download candidates CV
+16. Add New Admin
+17. Edit Delete posts 
+18. Contact Page
 </br>
 </br>
 Installation:
@@ -41,4 +34,4 @@ Installation:
 6. Now go to: localhost/job-portal
 </br>
 </br>
-You're welcome.
+That's it.
